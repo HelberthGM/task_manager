@@ -51,7 +51,18 @@ def create_task(request):
             'form': TaskForm
         })
     else:
-        print(request.POST)
+        try:
+            form = TaskForm(request.POST)
+            new_task = form.save(commit=False)
+            new_task.user = request.user
+            new_task.save()
+            #print(new_task)
+            return redirect('tasks')
+        except ValueError:
+            return render(request, 'create_task.html',{
+                'form': TaskForm,
+                'error': 'Please provide valid data'
+            })
 
 def signout(request):
     logout(request)
