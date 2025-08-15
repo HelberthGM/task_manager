@@ -50,7 +50,8 @@ def tasks(request):
     #tasks = Task.objects.all()
     tasks = Task.objects.filter(user=request.user, date_completed__isnull=True)
     return render(request, 'tasks.html',{
-        'tasks': tasks
+        'tasks': tasks,
+        'page_title': 'Pending Tasks',
     })
 
 @login_required
@@ -58,7 +59,8 @@ def tasks_completed(request):
     #tasks = Task.objects.all()
     tasks = Task.objects.filter(user=request.user, date_completed__isnull=False).order_by('-date_completed')
     return render(request, 'tasks.html',{
-        'tasks': tasks
+        'tasks': tasks,
+        'page_title': 'Completed Tasks',
     })
 
 @login_required
