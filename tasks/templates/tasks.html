@@ -1,24 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{page_title}}</h1>
+<main class="container">
+    <section class="col-md-6 offset-md-3">
+        <h1 class="text-center display-4 py-5">{{page_title}}</h1>
 
-<ul>
-    {% for task in tasks %}
-    <li>
-        <a href="{% url 'task_detail' task.id %}">
-            {% if task.urgent %}
-            <strong>{{task.title}}</strong>
-            {% else %}
-            {{task.title}}
-            {% endif %}
-            
-            <p>{{task.description}}</p>
-            <p>{{task.user.username}}</p>
-            <p>{{task.date_completed|date:"M j Y:i"}}</p>
-        </a>
-    </li>
-    {% endfor %}
-</ul>
+        <ul class="list-group">
+            {% for task in tasks %}
+            <a class="list-group-item" href="{% url 'task_detail' task.id %}">
+                <header class="d-flex justify-content-between">
+                    {% if task.urgent %}
+                    <h2 class="fw-bold text-info">
+                            {{task.title}}
+                        {% else %}
+                        <h2 class="text-primary">
+                            {{task.title}}
+                        {% endif %}
+                    </h2>
+                    <p>{{task.user.username}}</p>
+                </header>
+
+                <p>{{task.description}}</p>
+                <p>{{task.date_completed|date:"M j Y:i"}}</p>
+            </a>
+            {% endfor %}
+        </ul>
+    </section>
+</main>
 
 {% endblock %}
