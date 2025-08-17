@@ -115,7 +115,6 @@ This project is deployed on **Render.com**, a cloud platform with a free tier id
 5. Add environment variables:
 
    * `SECRET_KEY`
-   * `DEBUG=False`
    * `DATABASE_URL` (Render provides this when you add a free PostgreSQL instance)
 6. Deploy 🚀
 
@@ -123,7 +122,14 @@ This project is deployed on **Render.com**, a cloud platform with a free tier id
 
 ## 📸 Screenshots
 
-*(Add screenshots: login page, task form, pending/completed tasks view with Bootstrap styles)*
+### 🔑 Login Page
+![Login](screenshots/login.png)
+
+### 📝 Task Form
+![Task Form](screenshots/task_form.png)
+
+### 📋 Pending Tasks
+![Pending Tasks](screenshots/tasks.png)
 
 ---
 
