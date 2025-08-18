@@ -37,10 +37,11 @@ It supports **pending and completed task views** and demonstrates backend skills
 
 ```
 task_manager/
-│── tasks/               # App with models, views, forms, migrations
-│── templates/           # HTML templates (Bootstrap integrated)
 │── requirements.txt     # Dependencies
 │── manage.py            # Django project manager
+│── tasks/               # App with models, views, forms, migrations
+  │── templates/           # HTML templates (Bootstrap integrated)
+  │── static/              # fav icon files
 ```
 
 ---
@@ -145,3 +146,6 @@ This project shows strong backend skills:
 Perfect for developing backend development skills. 🌟
 
 ---
+
+## 📝 Attribution
+The favicon used in this project was generated with [favicon.io](https://favicon.io/).
