@@ -7,7 +7,7 @@ The app includes **user authentication**, task urgency flags, and a clean interf
 
 It supports **pending and completed task views** and demonstrates backend skills with Django’s ORM, forms, and authentication system, combined with a production-ready deploy on **Render**.
 
-🔗 **Live Demo (Render):** [https://your-render-url.onrender.com](https://your-render-url.onrender.com)
+🔗 **Live Demo (Render):** [https://task-manager-c7fd.onrender.com/](https://task-manager-c7fd.onrender.com/)
 
 ---
 
@@ -39,7 +39,6 @@ It supports **pending and completed task views** and demonstrates backend skills
 task_manager/
 │── tasks/               # App with models, views, forms, migrations
 │── templates/           # HTML templates (Bootstrap integrated)
-│── static/              # CSS/JS assets
 │── requirements.txt     # Dependencies
 │── manage.py            # Django project manager
 ```
@@ -105,17 +104,18 @@ This project is deployed on **Render.com**, a cloud platform with a free tier id
    * **Build Command:**
 
      ```bash
-     pip install -r requirements.txt && python manage.py migrate && python manage.py collectstatic --noinput
+     ./build.sh
      ```
    * **Start Command:**
 
      ```bash
-     gunicorn projectname.wsgi
+     python -m gunicorn task_manager.asgi:application -k uvicorn.workers.UvicornWorker
      ```
 5. Add environment variables:
 
    * `SECRET_KEY`
    * `DATABASE_URL` (Render provides this when you add a free PostgreSQL instance)
+   * `WEB_CONCURRENCY`
 6. Deploy 🚀
 
 ---
